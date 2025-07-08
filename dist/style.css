@@ -1,0 +1,180 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    --bg-color: #090f1e;
+    --bg-color-dark: #0e0e0e;
+    --bg-color-light: #15213e;
+    --fg-color: #e6e6e6;
+    --fg-color-dark: #d5d5d5;
+    --btn-color: #2e71be;
+    --btn-hover-color: #175081;
+    --copied-color: #318f2c;
+}
+body {
+    font-family: monospace;
+    background-color: var(--bg-color-dark);
+    color: var(--fg-color);
+    line-height: 1.7;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+/* ---------------------- */
+a {
+    text-decoration: none;
+    color: var(--btn-color);
+}
+.separator {
+    border-bottom-color: #8a909d;
+    border-bottom-style: dotted;
+    border-bottom-width: 2px;
+    margin: 0.5rem 0;
+    font-size: small;
+}
+footer {
+    padding: 1rem 0;
+    font-size: x-small;
+    color: var(--fg-color-dark);
+}
+/* ---------------------- */
+.result_wrapper {
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.7rem;
+    color: var(--fg-color-dark);
+}
+/* ---------------------- */
+.result_header {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+}
+.result_header .result_header_actions {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+.result_header .result_header_actions button {
+    background-color: #e6e6e6;
+    color: var(--bg-color-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.result_header .result_header_actions button:hover {
+    background-color: #b7b7b7;
+}
+/* ---------------------- */
+.result_info {
+    width: 100%;
+    font-size: small;
+}
+.result_info .info_details {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    color: #8a909d;
+}
+/* ---------------------- */
+.data_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    font-size: small;
+}
+.data_header .title,
+.data_header .duration {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.data_header .title {
+    min-width: 85%;
+}
+.data_header .duration {
+    min-width: 15%;
+}
+.data_header p {
+    width: 100%;
+}
+/* ---------------------- */
+.result_body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.8rem;
+}
+.result_body .single_data_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+}
+.result_body .single_data_section .title,
+.result_body .single_data_section .duration {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+.result_body .single_data_section .title {
+    min-width: 85%;
+}
+.result_body .single_data_section .duration {
+    width: 15%;
+}
+.result_body .single_data_section .txt {
+    width: 100%;
+    border: 3px dotted #999;
+    text-align: start;
+    color: var(--fg-color-dark);
+    padding: 0.5rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.result_body .single_data_section .title:hover > .txt,
+.result_body .single_data_section .duration:hover > .txt {
+    background-color: #1c1c1c;
+    border-color: #fff;
+}
+
+.txt-copied {
+    width: 100%;
+    border: 3px dotted var(--copied-color);
+    text-align: start;
+    color: var(--copied-color);
+    padding: 0.5rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.txt-copied:hover {
+    background-color: #1c1c1c;
+    border-color: var(--copied-color);
+}
