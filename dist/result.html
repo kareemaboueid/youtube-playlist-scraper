@@ -8,64 +8,54 @@
 </head>
 <body>
     <section class="result_wrapper">
-        <section class="result_header">
-            <div>
-                <h1>YouTube playlist successfully scraped</h1>
+        <div class="result_top">
+            <section class="result_header">
+                <div>
+                    <h1>YouTube playlist successfully scraped</h1>
+                </div>
+                <div class="result_header_actions">
+                    <button onclick="save_to_file()">Save</button>
+                    <button onclick="window.close()">Exit</button>
+                </div>
+            </section>
+            <div class="result_info">
+                <div class="info_details">
+                    <p><strong>Script: </strong><a href="https://github.com/kareemaboueid/youtube-playlist-scraper" target="_blank">youtube-playlist-scraper.py</a></p>
+                    <p><strong>Time: </strong><span id="scraping_time">11.3</span>s</p>
+                    <p><strong>length: </strong>19</p>
+                    <p><strong>Playlist: </strong><a style="cursor: pointer;" onclick="window.open('https://www.youtube.com/playlist?list=PL2xsPNbpw3oh72q9DN-dzDG_tgoS12kzG', '_blank')">Open ↗</a></p>
+                </div>
+                <br />
+                <div class="data_header">
+                    <div class="title"><p>Playlist Title</p></div>
+                    <div class="duration"><p>Playlist Duration</p></div>
+                </div>
+                <div class="result_body">
+                    <div class="single_data_section">
+                        <div class="title" title="Click to copy">
+                            <a onclick="copy_text(this)" class="txt">المؤشرات - pointers</a>
+                        </div>
+                        <div class="duration" title="Click to copy">
+                            <p onclick="copy_text(this)" class="txt">333</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="result_header_actions">
-                <button onclick="save_to_file()">Save</button>
-                <button onclick="window.close()">Close</button>
-            </div>
-        </section>
-        <div class="result_info">
-            <div class="info_details">
-                <p><strong>Script: </strong>youtube-playlist-scraper.py</p>
-                <p><strong>Time: </strong><span id="scraping_time">15.6</span>s</p>
-                <p><strong>length: </strong>78</p>
-            </div>
-            <div class="info_details">
-                <p><strong>Playlist: </strong><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAwy-rS6WKudwVeb_x63EzgS">Fundamentals Of Programming With C++</a></p>
-            </div>
-        </div>
-        <div class="separator"></div>
-        <div class="data_header">
-            <div class="title"><p>Title</p></div>
-            <div class="duration"><p>Duration</p></div>
         </div>
         <div class="result_body">
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(1) [Arabic] Fundamentals Of Programming With C++ #001 - Important Introduction About The Course</p>
+                        <p onclick="copy_text(this)" class="txt">(1) introduction to Pointers in C/C++ - [Arabic] Simple explanation - #01</p>
                     </div>
                     <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
+                        <p onclick="copy_text(this)" class="txt">26</p>
                     </div>
                 </div>
             
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(2) [Arabic] Fundamentals Of Programming With C++ #002 - Why C++ Language</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(3) [Arabic] Fundamentals Of Programming With C++ #003 - Install VSC Editor, Compiler And Debugger</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">20</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(4) [Arabic] Fundamentals Of Programming With C++ #004 - Install Visual Studio And Answer Questions</p>
+                        <p onclick="copy_text(this)" class="txt">(2) Why pointers in C/C++ must have a data type? [Arabic] - #02</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">21</p>
@@ -75,17 +65,17 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(5) [Arabic] Fundamentals Of Programming With C++ #005 - How The C++ Works</p>
+                        <p onclick="copy_text(this)" class="txt">(3) Null & Wiled pointers - #3 - prevent your program crashing [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
+                        <p onclick="copy_text(this)" class="txt">17</p>
                     </div>
                 </div>
             
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(6) [Arabic] Fundamentals Of Programming With C++ #006 - Preprocessing, Compiling And Linking</p>
+                        <p onclick="copy_text(this)" class="txt">(4) Difference between Compile-time and Run-time - #4 - [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">5</p>
@@ -95,17 +85,17 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(7) [Arabic] Fundamentals Of Programming With C++ #007 - C++ Language Syntax</p>
+                        <p onclick="copy_text(this)" class="txt">(5) Stack memory - #5 - [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">12</p>
+                        <p onclick="copy_text(this)" class="txt">18</p>
                     </div>
                 </div>
             
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(8) [Arabic] Fundamentals Of Programming With C++ #008 - Comments And Use Cases</p>
+                        <p onclick="copy_text(this)" class="txt">(6) Heap memory and dynamic allocation | Stack vs Heap - #6 - [Arabic] - power of pointers.</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">14</p>
@@ -115,37 +105,7 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(9) [Arabic] Fundamentals Of Programming With C++ #009 - Variables Basic Knowledge</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(10) [Arabic] Fundamentals Of Programming With C++ #010 - Variables Naming Rules And Best Practices</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">11</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(11) [Arabic] Fundamentals Of Programming With C++ #011 - Variables Advanced Knowledge</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(12) [Arabic] Fundamentals Of Programming With C++ #012 - Variables Scope</p>
+                        <p onclick="copy_text(this)" class="txt">(7) Memory Leak - #7 - [Arabic] C/C++</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">5</p>
@@ -155,17 +115,27 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(13) [Arabic] Fundamentals Of Programming With C++ #013 - Variables - Constant Variable</p>
+                        <p onclick="copy_text(this)" class="txt">(8) Shallow copy and Deep copy - #8 [Arabic] | programming in C++</p>
                     </div>
                     <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">9</p>
+                        <p onclick="copy_text(this)" class="txt">14</p>
                     </div>
                 </div>
             
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(14) [Arabic] Fundamentals Of Programming With C++ #014 - Calculate Your Age Application</p>
+                        <p onclick="copy_text(this)" class="txt">(9) Passing and Return Pointers to functions | in c++ - #9 - [Arabic]</p>
+                    </div>
+                    <div class="duration" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">17</p>
+                    </div>
+                </div>
+            
+
+                <div class="single_data_section">
+                    <div class="title" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">(10) Void Pointer -#10- [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">7</p>
@@ -175,7 +145,17 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(15) [Arabic] Fundamentals Of Programming With C++ #015 - Escape Sequences Characters</p>
+                        <p onclick="copy_text(this)" class="txt">(11) Memcpy() implementation | Void Pointer - #11 - [Arabic]</p>
+                    </div>
+                    <div class="duration" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">14</p>
+                    </div>
+                </div>
+            
+
+                <div class="single_data_section">
+                    <div class="title" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">(12) multi-level pointers | pointer to pointers - #12 - [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">11</p>
@@ -185,167 +165,7 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(16) [Arabic] Fundamentals Of Programming With C++ #016 - Data Types - What Is Data ?</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(17) [Arabic] Fundamentals Of Programming With C++ #017 - Data Types, Sizes And Memory</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">11</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(18) [Arabic] Fundamentals Of Programming With C++ #018 - Data Types - Integer</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">9</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(19) [Arabic] Fundamentals Of Programming With C++ #019 - Data Types - Float And Double</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(20) [Arabic] Fundamentals Of Programming With C++ #020 - Data Types - Char And ASCII</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(21) [Arabic] Fundamentals Of Programming With C++ #021 - Data Types - Bool And Void</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(22) [Arabic] Fundamentals Of Programming With C++ #022 - Data Types - Modifiers And Type Alias</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">13</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(23) [Arabic] Fundamentals Of Programming With C++ #023 - Data Types - Type Conversion</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(24) [Arabic] Fundamentals Of Programming With C++ #024 - Operators - Arithmetic Operators</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">12</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(25) [Arabic] Fundamentals Of Programming With C++ #025 - Operators - Assignment Operators</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(26) [Arabic] Fundamentals Of Programming With C++ #026 - Operators - Increment And Decrement Operators</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">5</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(27) [Arabic] Fundamentals Of Programming With C++ #027 - Operators - Comparison Operators</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(28) [Arabic] Fundamentals Of Programming With C++ #028 - Operators - Logical Operators</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(29) [Arabic] Fundamentals Of Programming With C++ #029 - Operators - Precedence</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(30) [Arabic] Fundamentals Of Programming With C++ #030 - Control Flow - If Condition Introduction</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(31) [Arabic] Fundamentals Of Programming With C++ #031 - Control Flow - If, Else If, Else</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(32) [Arabic] Fundamentals Of Programming With C++ #032 - Control Flow - Nested If Conditions</p>
+                        <p onclick="copy_text(this)" class="txt">(13) const pointers & pointer to const object - #13 - [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">4</p>
@@ -355,17 +175,27 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(33) [Arabic] Fundamentals Of Programming With C++ #033 - Control Flow - Ternary Conditional Operator</p>
+                        <p onclick="copy_text(this)" class="txt">(14) What is an array? (at memory level) - #14 - [Arabic] 1D | 2D</p>
                     </div>
                     <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">3</p>
+                        <p onclick="copy_text(this)" class="txt">26</p>
                     </div>
                 </div>
             
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(34) [Arabic] Fundamentals Of Programming With C++ #034 - Control Flow - Nested Ternary Operator</p>
+                        <p onclick="copy_text(this)" class="txt">(15) static and dynamic arrays in c/c++ - #15</p>
+                    </div>
+                    <div class="duration" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">28</p>
+                    </div>
+                </div>
+            
+
+                <div class="single_data_section">
+                    <div class="title" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">(16) Pointer to functions -#16- [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">7</p>
@@ -375,7 +205,17 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(35) [Arabic] Fundamentals Of Programming With C++ #035 - Condition Trainings - Create Four Application</p>
+                        <p onclick="copy_text(this)" class="txt">(17) callback functions-#17- [Arabic]</p>
+                    </div>
+                    <div class="duration" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">18</p>
+                    </div>
+                </div>
+            
+
+                <div class="single_data_section">
+                    <div class="title" title="Click to copy">
+                        <p onclick="copy_text(this)" class="txt">(18) All About Reverences c/c++ -#18- [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
                         <p onclick="copy_text(this)" class="txt">22</p>
@@ -385,430 +225,10 @@
 
                 <div class="single_data_section">
                     <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(36) [Arabic] Fundamentals Of Programming With C++ #036 - Control Flow - Switch Case</p>
+                        <p onclick="copy_text(this)" class="txt">(19) Genaric Linked List (Final Project) - #19 - [Arabic]</p>
                     </div>
                     <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(37) [Arabic] Fundamentals Of Programming With C++ #037 - Switch Training - Create Three Application</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(38) [Arabic] Fundamentals Of Programming With C++ #038 - Array - What Is Array ?</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">5</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(39) [Arabic] Fundamentals Of Programming With C++ #039 - Array - Access Elements & Memory Location</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">3</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(40) [Arabic] Fundamentals Of Programming With C++ #040 - Array - Add And Update Elements</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">9</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(41) [Arabic] Fundamentals Of Programming With C++ #041 - Array - Two Dimensional Array</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(42) [Arabic] Fundamentals Of Programming With C++ #042 - Array - Class Array</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(43) [Arabic] Fundamentals Of Programming With C++ #043 - Array - Methods Discussions</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(44) [Arabic] Fundamentals Of Programming With C++ #044 - Array Trainings - Guess The Number Game</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">9</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(45) [Arabic] Fundamentals Of Programming With C++ #045 - String - What Is A String</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">12</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(46) [Arabic] Fundamentals Of Programming With C++ #046 - String - Concatenating</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">4</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(47) [Arabic] Fundamentals Of Programming With C++ #047 - Loop With For</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(48) [Arabic] Fundamentals Of Programming With C++ #048 - Loop With For - Advanced Syntax</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(49) [Arabic] Fundamentals Of Programming With C++ #049 - Loop With For - Advanced Trainings</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(50) [Arabic] Fundamentals Of Programming With C++ #050 - Loop With For - Nested Loop</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(51) [Arabic] Fundamentals Of Programming With C++ #051 - Loop With While</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(52) [Arabic] Fundamentals Of Programming With C++ #052 - Loop With Do While</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">5</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(53) [Arabic] Fundamentals Of Programming With C++ #053 - Loop - Break, Continue</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(54) [Arabic] Fundamentals Of Programming With C++ #054 - Loop Training Create Three Apps</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">16</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(55) [Arabic] Fundamentals Of Programming With C++ #055 - Function - Introduction</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(56) [Arabic] Fundamentals Of Programming With C++ #056 - Function With Parameter</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(57) [Arabic] Fundamentals Of Programming With C++ #057 - Function With Parameter Training</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(58) [Arabic] Fundamentals Of Programming With C++ #058 - Function Parameter Default Value</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">4</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(59) [Arabic] Fundamentals Of Programming With C++ #059 - Function - Passing Array As Parameter</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(60) [Arabic] Fundamentals Of Programming With C++ #060 - Function - Return Statement + Void</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">11</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(61) [Arabic] Fundamentals Of Programming With C++ #061 - Function - Forward Declaration</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">4</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(62) [Arabic] Fundamentals Of Programming With C++ #062 - Built-In Functions - Math Functions</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">9</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(63) [Arabic] Fundamentals Of Programming With C++ #063 - Built-In Functions - Training - Create 2 Apps</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">12</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(64) [Arabic] Fundamentals Of Programming With C++ #064 - Built-In Functions - Training - Create 3 Apps</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">11</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(65) [Arabic] Fundamentals Of Programming With C++ #065 - Function Overloading</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(66) [Arabic] Fundamentals Of Programming With C++ #066 - Function Recursion</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(67) [Arabic] Fundamentals Of Programming With C++ #067 - Vector - What Is Vector</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">8</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(68) [Arabic] Fundamentals Of Programming With C++ #068 - Vector Versus Array</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">10</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(69) [Arabic] Fundamentals Of Programming With C++ #069 - Vector - Access, Add, Update And Delete</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(70) [Arabic] Fundamentals Of Programming With C++ #070 - Vector - Functions</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">4</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(71) [Arabic] Fundamentals Of Programming With C++ #071 - Vector - Iterator And Why To Use</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">9</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(72) [Arabic] Fundamentals Of Programming With C++ #072 - Vector - Traversing With Iterator</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(73) [Arabic] Fundamentals Of Programming With C++ #073 - Vector - Loop With Iterator And Ranged Loop</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">4</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(74) [Arabic] Fundamentals Of Programming With C++ #074 - Vector - Use Iterator To Count, Sort & Reverse</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">5</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(75) [Arabic] Fundamentals Of Programming With C++ #075 - Pointers - What Are Pointers ?</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">7</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(76) [Arabic] Fundamentals Of Programming With C++ #076 - Pointers - Pointing To Array</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">4</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(77) [Arabic] Fundamentals Of Programming With C++ #077 - Pointers - Void And Wild Pointer And Null</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">5</p>
-                    </div>
-                </div>
-            
-
-                <div class="single_data_section">
-                    <div class="title" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">(78) [Arabic] Fundamentals Of Programming With C++ #078 - Pointers - Arithmetic And Array</p>
-                    </div>
-                    <div class="duration" title="Click to copy">
-                        <p onclick="copy_text(this)" class="txt">6</p>
+                        <p onclick="copy_text(this)" class="txt">59</p>
                     </div>
                 </div>
             </div>
