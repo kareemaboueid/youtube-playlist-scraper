@@ -34,16 +34,16 @@ def convert_duration_to_minutes(duration_text):
         return 0
 
 
-def smart_scroll(driver, pause_time=0.1, cycles=1):
+def smart_scroll(driver, pause_time=0.2, cycles=1):
     height = driver.execute_script(
         "return document.documentElement.scrollHeight")
     for _ in range(cycles):
-        for i in range(0, height, 900):
+        for i in range(0, height, 800):
             driver.execute_script(f"window.scrollTo(0, {i});")
             time.sleep(pause_time)
     driver.execute_script(
         "window.scrollTo(0, document.documentElement.scrollHeight);")
-    time.sleep(0.2)
+    time.sleep(0.3)
 
 
 default_template = '''<!DOCTYPE html>
@@ -56,29 +56,39 @@ default_template = '''<!DOCTYPE html>
 </head>
 <body>
     <section class="result_wrapper">
-        <section class="result_header">
-            <div>
-                <h1>YouTube playlist successfully scraped</h1>
+        <div class="result_top">
+            <section class="result_header">
+                <div>
+                    <h1>YouTube playlist successfully scraped</h1>
+                </div>
+                <div class="result_header_actions">
+                    <button onclick="save_to_file()">Save</button>
+                    <button onclick="window.close()">Exit</button>
+                </div>
+            </section>
+            <div class="result_info">
+                <div class="info_details">
+                    <p><strong>Script: </strong><a href="https://github.com/kareemaboueid/youtube-playlist-scraper" target="_blank">%SCRIPT_NAME%</a></p>
+                    <p><strong>Time: </strong><span id="scraping_time">%TIME_TAKEN%</span>s</p>
+                    <p><strong>length: </strong>%DATA_LENGTH%</p>
+                    <p><strong>Playlist: </strong><a style="cursor: pointer;" onclick="window.open('%SCRAPING_URL%', '_blank')">Open ↗</a></p>
+                </div>
+                <br />
+                <div class="data_header">
+                    <div class="title"><p>Playlist Title</p></div>
+                    <div class="duration"><p>Playlist Duration</p></div>
+                </div>
+                <div class="result_body">
+                    <div class="single_data_section">
+                        <div class="title" title="Click to copy">
+                            <a onclick="copy_text(this)" class="txt">%PLAYLIST_NAME%</a>
+                        </div>
+                        <div class="duration" title="Click to copy">
+                            <p onclick="copy_text(this)" class="txt">%PLAYLIST_TOTAL_DURATION%</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="result_header_actions">
-                <button onclick="save_to_file()">Save</button>
-                <button onclick="window.close()">Close</button>
-            </div>
-        </section>
-        <div class="result_info">
-            <div class="info_details">
-                <p><strong>Script: </strong>%SCRIPT_NAME%</p>
-                <p><strong>Time: </strong><span id="scraping_time">%TIME_TAKEN%</span>s</p>
-                <p><strong>length: </strong>%DATA_LENGTH%</p>
-            </div>
-            <div class="info_details">
-                <p><strong>Playlist: </strong><a href="%SCRAPING_URL%">%PLAYLIST_NAME%</a></p>
-            </div>
-        </div>
-        <div class="separator"></div>
-        <div class="data_header">
-            <div class="title"><p>Title</p></div>
-            <div class="duration"><p>Duration</p></div>
         </div>
         <div class="result_body">%ALL_DATA%</div>
     </section>
@@ -94,8 +104,10 @@ default_template = '''<!DOCTYPE html>
 def scrape_playlist(url, chromedriver_path="./chromedriver.exe"):
     start_time = time.time()
     script_name = os.path.basename(__file__)
+    script_url = "https://github.com/kareemaboueid/youtube-playlist-scraper"
     video_count = 0
     elapsed = 0
+    playlist_total_duration = 0
 
     if not url.startswith("https://www.youtube.com/playlist?list="):
         print("Invalid YouTube playlist URL.")
@@ -124,8 +136,15 @@ def scrape_playlist(url, chromedriver_path="./chromedriver.exe"):
         print_agent("Scrolling to load full playlist...")
         smart_scroll(driver)
 
-        playlist_title = driver.find_element(
-            By.CLASS_NAME, "yt-dynamic-sizing-formatted-string").text.strip()
+        try:
+            playlist_title_element = driver.find_element(
+                By.XPATH, "//*[@id=\"page-manager\"]/ytd-browse/yt-page-header-renderer/yt-page-header-view-model/div[2]/div/div[1]/div/yt-dynamic-text-view-model/h1/span"
+            )
+            playlist_title = playlist_title_element.text.strip()
+        except NoSuchElementException:
+            print_agent("Playlist title not found. Using default title.")
+            playlist_title = url
+
         title_elements = driver.find_elements(By.ID, "video-title")
         duration_elements = driver.find_elements(
             By.CLASS_NAME, "ytd-thumbnail-overlay-time-status-renderer")
@@ -138,6 +157,8 @@ def scrape_playlist(url, chromedriver_path="./chromedriver.exe"):
 
         videos = list(zip(title_texts, durations))[:len(title_texts)]
         video_count = len(videos)
+
+        playlist_total_duration = sum(durations)
 
         html_snippets = []
         for idx, (title, minutes) in enumerate(videos, 1):
@@ -164,6 +185,8 @@ def scrape_playlist(url, chromedriver_path="./chromedriver.exe"):
 
         elapsed = round(time.time() - start_time, 1)
         html_content = template.replace("%SCRIPT_NAME%", script_name)\
+            .replace("%PLAYLIST_TOTAL_DURATION%", str(playlist_total_duration))\
+            .replace("%SCRIPT_URL%", script_url)\
             .replace("%TIME_TAKEN%", str(elapsed))\
             .replace("%SCRAPING_URL%", url)\
             .replace("%PLAYLIST_NAME%", playlist_title)\
