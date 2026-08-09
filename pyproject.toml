@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scrap-youtube-course"
+version = "0.1.0"
+description = "Scrape YouTube playlist titles and durations and generate an HTML report."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "selenium",
+]
+
+[project.scripts]
+scrap-youtube-course = "scrap_youtube_course.main:main"
+
+[tool.setuptools]
+packages = ["scrap_youtube_course"]

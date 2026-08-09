@@ -34,26 +34,36 @@ youtube-playlist-scraper/
 
 ## Installation
 
-1. Clone the repository or download the code.
-2. Install the required Python dependencies:
+Clone the repository:
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/kareemaboueid/youtube-playlist-scraper.git
+cd youtube-playlist-scraper
 ```
 
-**Note:** You do NOT need to manually install or place a `chromedriver` binary. Selenium Manager (included in Selenium 4.x+) will automatically download and manage the correct ChromeDriver for your system.
+Install the project in editable mode:
+
+```bash
+pip install -e .
+```
+
+The command installs the application and its dependencies automatically, including Selenium.
 
 ## Usage
 
-Double-click or run the `youtube-playlist-scraper.py` file.
+Run the installed command from any terminal:
 
-You’ll be prompted in the terminal to enter a YouTube playlist URL. Example format:
+```bash
+scrap-youtube-course
+```
+
+You’ll be prompted to enter a YouTube playlist URL. Example format:
 
 ```
 https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID
 ```
 
-The script will then:
+The command will then:
 
 1. Launch a Chrome browser using Selenium.
 2. Navigate to the playlist page.
@@ -61,6 +71,12 @@ The script will then:
 4. Output the results to `dist/result.html`.
 5. Open the report in your default browser.
 6. Log session details in `logs/log.txt`.
+
+You may also run the script directly for development:
+
+```bash
+python youtube-playlist-scraper.py
+```
 
 ## Requirements
 

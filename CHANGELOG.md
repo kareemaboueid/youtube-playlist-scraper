@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-10
+
+- Add modern Python packaging and editable install support with `pip install -e .`.
+- Add global CLI entry point `scrap-youtube-course` that works from any terminal.
+- Preserve report assets and resolve `dist/` and `logs/` relative to the installed package location.
+
 ## 2025-08-31
 
 - Refactor `smart_scroll` function and enhance HTML template for improved playlist scraping results.

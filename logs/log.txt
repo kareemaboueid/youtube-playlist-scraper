@@ -13,3 +13,4 @@
 [2026-08-09_23:18:21] youtube-playlist-scraper.py https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb length=33 time=15.46sec
 [2026-08-09_23:19:03] youtube-playlist-scraper.py https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb length=32 time=12.42sec
 [2026-08-09_23:20:01] youtube-playlist-scraper.py https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb length=33 time=11.45sec
+[2026-08-10_00:36:29] scrap-youtube-course https://www.youtube.com/playlist?list=PLy7NrYWoggjwPggqtFsI_zMAwvG0SqYCb length=33 time=12.03sec

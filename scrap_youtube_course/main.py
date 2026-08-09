@@ -1,26 +1,23 @@
-from scrap_youtube_course.main import main
 import html
 import os
 import re
-import sys
-import time
 import traceback
+import time
 import webbrowser
 from datetime import datetime
-from urllib.parse import urljoin, urlparse, parse_qs
+from typing import Dict, List, Optional, Set, Tuple, Union
+from urllib.parse import parse_qs, urljoin, urlparse
 
 from selenium import webdriver
 from selenium.common.exceptions import (
     NoSuchElementException,
     StaleElementReferenceException,
     TimeoutException,
-    WebDriverException,
 )
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
 
 DEFAULT_TEMPLATE = '''<!DOCTYPE html>
 <html lang="en">
@@ -186,14 +183,14 @@ def get_playlist_title(driver: webdriver.Chrome, fallback: str) -> str:
     return fallback
 
 
-def get_video_containers(driver: webdriver.Chrome) -> list[webdriver.remote.webelement.WebElement]:
+def get_video_containers(driver: webdriver.Chrome) -> List[webdriver.remote.webelement.WebElement]:
     try:
         return driver.find_elements(By.CSS_SELECTOR, VIDEO_CONTAINER_SELECTOR)
     except Exception:
         return []
 
 
-def find_title_in_container(container: webdriver.remote.webelement.WebElement) -> tuple[str, str] | None:
+def find_title_in_container(container: webdriver.remote.webelement.WebElement) -> Optional[Tuple[str, str]]:
     try:
         title_element = container.find_element(
             By.CSS_SELECTOR, VIDEO_TITLE_SELECTOR)
@@ -218,7 +215,7 @@ def find_title_in_container(container: webdriver.remote.webelement.WebElement) -
     return None
 
 
-def find_duration_in_container(container: webdriver.remote.webelement.WebElement) -> str | None:
+def find_duration_in_container(container: webdriver.remote.webelement.WebElement) -> Optional[str]:
     try:
         duration_element = container.find_element(
             By.CSS_SELECTOR, VIDEO_DURATION_SELECTOR)
@@ -254,7 +251,7 @@ def normalize_video_url(url: str) -> str:
     return url
 
 
-def scroll_to_bottom(driver: webdriver.Chrome, container: webdriver.remote.webelement.WebElement | None) -> None:
+def scroll_to_bottom(driver: webdriver.Chrome, container: Optional[webdriver.remote.webelement.WebElement]) -> None:
     if container is not None:
         try:
             driver.execute_script(
@@ -267,7 +264,7 @@ def scroll_to_bottom(driver: webdriver.Chrome, container: webdriver.remote.webel
     driver.execute_script("window.scrollBy(0, window.innerHeight * 0.8);")
 
 
-def load_all_video_containers(driver: webdriver.Chrome) -> list[webdriver.remote.webelement.WebElement]:
+def load_all_video_containers(driver: webdriver.Chrome) -> List[webdriver.remote.webelement.WebElement]:
     stable_attempts = 3
     max_attempts = 20
     pause_time = 1.0
@@ -300,7 +297,7 @@ def load_all_video_containers(driver: webdriver.Chrome) -> list[webdriver.remote
     return get_video_containers(driver)
 
 
-def convert_duration_to_minutes(duration_text: str | int) -> int:
+def convert_duration_to_minutes(duration_text: Union[str, int]) -> int:
     if duration_text is None:
         return 0
     if isinstance(duration_text, int):
@@ -326,10 +323,10 @@ def convert_duration_to_minutes(duration_text: str | int) -> int:
     return 0
 
 
-def extract_video_records(driver: webdriver.Chrome) -> list[dict[str, str | int]]:
+def extract_video_records(driver: webdriver.Chrome) -> List[Dict[str, Union[str, int]]]:
     containers = get_video_containers(driver)
-    records: list[dict[str, str | int]] = []
-    seen_ids: set[str] = set()
+    records: List[Dict[str, Union[str, int]]] = []
+    seen_ids: Set[str] = set()
     index = 0
 
     for container in containers:
@@ -373,8 +370,8 @@ def build_html_report(
     playlist_title: str,
     playlist_total_duration: int,
     video_count: int,
-    videos: list[dict[str, str | int]],
-    template_path: str | None = None,
+    videos: List[Dict[str, Union[str, int]]],
+    template_path: Optional[str] = None,
     elapsed_time: float = 0.0,
 ) -> str:
     if template_path and os.path.exists(template_path):
@@ -413,6 +410,14 @@ def build_html_report(
     return html_content
 
 
+def get_package_root() -> str:
+    return os.path.dirname(os.path.abspath(__file__))
+
+
+def get_resource_path(*parts: str) -> str:
+    return os.path.join(get_package_root(), *parts)
+
+
 def save_report(content: str, output_path: str) -> None:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
@@ -420,19 +425,22 @@ def save_report(content: str, output_path: str) -> None:
 
 
 def append_log(script_name: str, url: str, video_count: int, elapsed: float) -> None:
-    os.makedirs("./logs", exist_ok=True)
+    log_dir = get_resource_path("..", "logs")
+    os.makedirs(log_dir, exist_ok=True)
+    log_file_path = os.path.join(log_dir, "log.txt")
     timestamp = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
     log_entry = f"[{timestamp}] {script_name} {url} length={video_count} time={elapsed}sec\n"
-    with open("./logs/log.txt", "a", encoding="utf-8") as log_file:
+    with open(log_file_path, "a", encoding="utf-8") as log_file:
         log_file.write(log_entry)
 
 
-def scrape_playlist(url: str) -> None:
-    script_name = os.path.basename(__file__)
+def scrape_playlist(url: str, script_name: Optional[str] = None) -> None:
+    if script_name is None:
+        script_name = os.path.basename(__file__)
     start_time = time.time()
     driver = None
     video_count = 0
-    videos: list[dict[str, str | int]] = []
+    videos: List[Dict[str, Union[str, int]]] = []
 
     if not is_valid_playlist_url(url):
         raise ValueError("Invalid YouTube playlist URL.")
@@ -465,6 +473,7 @@ def scrape_playlist(url: str) -> None:
         )
         elapsed_time = round(time.time() - start_time, 2)
 
+        template_path = get_resource_path("..", "dist", "result.html")
         html_content = build_html_report(
             script_name=script_name,
             url=url,
@@ -472,11 +481,11 @@ def scrape_playlist(url: str) -> None:
             playlist_total_duration=playlist_total_duration,
             video_count=video_count,
             videos=videos,
-            template_path="./result.html",
+            template_path=template_path,
             elapsed_time=elapsed_time,
         )
 
-        output_path = "./dist/result.html"
+        output_path = get_resource_path("..", "dist", "result.html")
         save_report(html_content, output_path)
         print_agent(f"HTML report saved to '{output_path}'")
 
@@ -501,5 +510,6 @@ def scrape_playlist(url: str) -> None:
         print_agent(f"Total processing time: {elapsed}s")
 
 
-if __name__ == "__main__":
-    main()
+def main() -> None:
+    playlist_url = input("Enter the YouTube playlist URL: ").strip()
+    scrape_playlist(playlist_url, script_name="scrap-youtube-course")
