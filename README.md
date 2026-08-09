@@ -12,7 +12,7 @@ youtube-playlist-scraper/
 │   ├── style.css
 ├── logs/
 │   ├── log.txt
-├── chromedriver.exe
+  # (No chromedriver needed)
 ├── requirements.txt
 ├── youtube-playlist-scraper.py
 └── README.md
@@ -41,7 +41,7 @@ youtube-playlist-scraper/
 pip install -r requirements.txt
 ```
 
-**Note:** You must place the correct version of `chromedriver.exe` in the root directory. It must match your installed version of Google Chrome.
+**Note:** You do NOT need to manually install or place a `chromedriver` binary. Selenium Manager (included in Selenium 4.x+) will automatically download and manage the correct ChromeDriver for your system.
 
 ## Usage
 
@@ -66,7 +66,7 @@ The script will then:
 
 * Python 3.7 or newer
 * Google Chrome browser
-* Matching version of ChromeDriver
+* Selenium 4.x or newer (for Selenium Manager)
 
 ## Author
 
