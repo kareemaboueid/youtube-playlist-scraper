@@ -2,6 +2,7 @@
 
 ## 2026-08-11
 
+- Improve text copying functionality by sanitizing whitespace before copying to clipboard
 - Refactor HTML template for cleaner structure in playlist display
 
 ## 2026-08-10

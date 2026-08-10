@@ -1,6 +1,7 @@
 function copy_text(p_element) {
-    const text = p_element.textContent;
-    navigator.clipboard.writeText(text).then(() => {
+    const text = p_element.textContent || "";
+    const cleanText = text.replace(/\s+/g, " ").trim();
+    navigator.clipboard.writeText(cleanText).then(() => {
         p_element.classList.remove("txt");
         p_element.classList.add("txt-copied");
     });
@@ -8,7 +9,7 @@ function copy_text(p_element) {
 
 function save_to_file() {
     const course_name = document.querySelector(
-        ".info_details p strong + a"
+        ".info_details p strong + a",
     ).textContent;
 
     const sanitized_course_name = course_name
