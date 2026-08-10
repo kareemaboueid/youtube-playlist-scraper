@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-08-11
+
+- Refactor HTML template for cleaner structure in playlist display
+
 ## 2026-08-10
 
 - Add modern Python packaging and editable install support with `pip install -e .`.

@@ -87,15 +87,11 @@ DEFAULT_TEMPLATE = '''<!DOCTYPE html>
                 <div class="result_body">
                     <div class="single_data_section">
                         <div class="title" title="Click to copy">
-                            <a onclick="copy_text(this)" class="txt">
-                                %PLAYLIST_NAME%
-                            </a>
+                            <a onclick="copy_text(this)" class="txt">%PLAYLIST_NAME%</a>
                         </div>
 
                         <div class="duration" title="Click to copy">
-                            <p onclick="copy_text(this)" class="txt">
-                                %PLAYLIST_TOTAL_DURATION%
-                            </p>
+                            <p onclick="copy_text(this)" class="txt">%PLAYLIST_TOTAL_DURATION%</p>
                         </div>
                     </div>
                 </div>
