@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-02
+
+- Fix stale playlist data being reused between executions of the global `scrap-youtube-course` command.
+- Fix resource path resolution so generated reports and logs resolve to the correct repository locations without malformed paths such as `scrap_youtube_course..`.
+- Refactor the project so `scrap_youtube_course/main.py` is the single authoritative scraper implementation.
+- Reduce `youtube-playlist-scraper.py` to a thin compatibility/development wrapper that delegates to the package entry point.
+- Add protection against using an already-generated `result.html` as the next scraping template.
+- Update `.gitignore` to exclude generated runtime files such as `dist/result.html` and `logs/log.txt`.
+- Remove generated runtime files from Git tracking while keeping them available locally.
+- Update README documentation to reflect the current package structure and Python 3.10+ requirement.
+- Preserve the existing HTML report design and ensure `script.js` and `style.css` remain unchanged.
+
 ## 2026-08-11
 
 - Improve text copying functionality by sanitizing whitespace before copying to clipboard

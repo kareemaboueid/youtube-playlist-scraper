@@ -7,16 +7,18 @@ A Python-based automation script that extracts video titles and durations from a
 ```txt
 youtube-playlist-scraper/
 ├── dist/
-│   ├── result.html
 │   ├── script.js
 │   ├── style.css
 ├── logs/
-│   ├── log.txt
-  # (No chromedriver needed)
 ├── requirements.txt
+├── pyproject.toml
+├── scrap_youtube_course/
+│   └── main.py
 ├── youtube-playlist-scraper.py
 └── README.md
 ````
+
+The report `dist/result.html` and log `logs/log.txt` are generated at runtime and are not source files tracked by Git.
 
 ## Features
 
@@ -30,7 +32,7 @@ youtube-playlist-scraper/
   * One-click export to plain `.txt` format
 * Automatically opens the result in your default browser
 * Logs every run with timestamp, URL, script name, and processing time
-* Works with or without a predefined `result.html` template (defaults to internal HTML structure if missing)
+* Uses a predefined `result.html` template when it still contains template placeholders; otherwise defaults to the internal HTML structure
 
 ## Installation
 
@@ -80,7 +82,7 @@ python youtube-playlist-scraper.py
 
 ## Requirements
 
-* Python 3.7 or newer
+* Python 3.10 or newer
 * Google Chrome browser
 * Selenium 4.x or newer (for Selenium Manager)
 

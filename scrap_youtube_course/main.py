@@ -1,10 +1,10 @@
 import html
-import os
 import re
 import traceback
 import time
 import webbrowser
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple, Union
 from urllib.parse import parse_qs, urljoin, urlparse
 
@@ -367,14 +367,15 @@ def build_html_report(
     playlist_total_duration: int,
     video_count: int,
     videos: List[Dict[str, Union[str, int]]],
-    template_path: Optional[str] = None,
+    template_path: Optional[Path] = None,
     elapsed_time: float = 0.0,
 ) -> str:
-    if template_path and os.path.exists(template_path):
-        with open(template_path, "r", encoding="utf-8") as f:
-            template = f.read()
-    else:
-        template = DEFAULT_TEMPLATE
+    template = DEFAULT_TEMPLATE
+    if template_path and template_path.is_file():
+        with template_path.open("r", encoding="utf-8") as f:
+            candidate_template = f.read()
+        if "%SCRAPING_URL%" in candidate_template:
+            template = candidate_template
 
     html_snippets = []
     for video in videos:
@@ -406,33 +407,32 @@ def build_html_report(
     return html_content
 
 
-def get_package_root() -> str:
-    return os.path.dirname(os.path.abspath(__file__))
+def get_package_root() -> Path:
+    return Path(__file__).resolve().parent
 
 
-def get_resource_path(*parts: str) -> str:
-    return os.path.join(get_package_root(), *parts)
+def get_resource_path(*parts: str) -> Path:
+    return (get_package_root() / Path(*parts)).resolve()
 
 
-def save_report(content: str, output_path: str) -> None:
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
+def save_report(content: str, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as f:
         f.write(content)
 
 
 def append_log(script_name: str, url: str, video_count: int, elapsed: float) -> None:
-    log_dir = get_resource_path("..", "logs")
-    os.makedirs(log_dir, exist_ok=True)
-    log_file_path = os.path.join(log_dir, "log.txt")
+    log_file_path = get_resource_path("..", "logs", "log.txt")
+    log_file_path.parent.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
     log_entry = f"[{timestamp}] {script_name} {url} length={video_count} time={elapsed}sec\n"
-    with open(log_file_path, "a", encoding="utf-8") as log_file:
+    with log_file_path.open("a", encoding="utf-8") as log_file:
         log_file.write(log_entry)
 
 
 def scrape_playlist(url: str, script_name: Optional[str] = None) -> None:
     if script_name is None:
-        script_name = os.path.basename(__file__)
+        script_name = Path(__file__).name
     start_time = time.time()
     driver = None
     video_count = 0
@@ -469,7 +469,7 @@ def scrape_playlist(url: str, script_name: Optional[str] = None) -> None:
         )
         elapsed_time = round(time.time() - start_time, 2)
 
-        template_path = get_resource_path("..", "dist", "result.html")
+        output_path = get_resource_path("..", "dist", "result.html")
         html_content = build_html_report(
             script_name=script_name,
             url=url,
@@ -477,16 +477,15 @@ def scrape_playlist(url: str, script_name: Optional[str] = None) -> None:
             playlist_total_duration=playlist_total_duration,
             video_count=video_count,
             videos=videos,
-            template_path=template_path,
+            template_path=output_path,
             elapsed_time=elapsed_time,
         )
 
-        output_path = get_resource_path("..", "dist", "result.html")
         save_report(html_content, output_path)
         print_agent(f"HTML report saved to '{output_path}'")
 
         try:
-            webbrowser.open_new_tab(os.path.abspath(output_path))
+            webbrowser.open_new_tab(str(output_path))
             print_agent("Report opened in browser.")
         except Exception as exc:
             print_agent(f"Failed to open report: {exc}", prefix="WARNING: ")
